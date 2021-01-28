@@ -9,10 +9,10 @@ import retrofit2.http.POST;
 
 public interface RetrofitInterface {
 
-    @POST("/user/signUp")
+    @POST("/sign-up")
     Call<Void> executeSignUp(@Body HashMap<String, String> map);
 
-    @POST("/user/phone/verify")
+    @POST("/sign-up/verify")
     Call<Void> executePhoneVerification(@Body HashMap<String, String> map);
 
 }
