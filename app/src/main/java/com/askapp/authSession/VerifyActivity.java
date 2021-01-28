@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.askapp.R;
 import com.askapp.database.Database;
-import com.askapp.mainSession.MainActivity;
 import com.askapp.server.Server;
 
 import java.util.HashMap;
@@ -60,7 +59,10 @@ public class VerifyActivity extends AppCompatActivity {
             public void onResponse(Call<Void> call, Response<Void> response) {
                 pd.dismiss();
                 if (response.code()==200){
+                    db.setStatus("true");
                     startActivity(new Intent(VerifyActivity.this, ProvideDetailsActivity.class));
+                    overridePendingTransition(R.anim.slide_left_a,R.anim.slide_left_b);
+                    finish();
                 }else if (response.code() == 504){
                     AlertDialog.Builder aBuilder = new AlertDialog.Builder(VerifyActivity.this);
                     aBuilder.setTitle("Incorrect OTP");

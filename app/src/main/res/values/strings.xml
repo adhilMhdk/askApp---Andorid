@@ -5,4 +5,5 @@
     <string name="one_time_password">One-Time-Password</string>
     <string name="enter_the_otp_send_to_number">Enter the OTP send to (number)</string>
     <string name="enter_otp">Enter OTP</string>
+    <string name="please_wait">Please wait</string>
 </resources>

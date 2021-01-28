@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "112107338469",
+    "project_id": "askapp-d8964",
+    "storage_bucket": "askapp-d8964.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112107338469:android:5a09c212264c8c498af20c",
+        "android_client_info": {
+          "package_name": "com.askapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112107338469-t1vjqmai3vvcrru45j4r1aa1gqvgt2gk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0VdsZXsrkC7Gm5gmJ5BlHOoEjJi6gFE0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112107338469-t1vjqmai3vvcrru45j4r1aa1gqvgt2gk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

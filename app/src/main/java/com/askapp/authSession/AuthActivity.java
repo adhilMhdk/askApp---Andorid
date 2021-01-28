@@ -65,6 +65,7 @@ public class AuthActivity extends AppCompatActivity {
                 database.setPhone("+"+countryCode+phone);
                 startActivity(new Intent(AuthActivity.this,VerifyActivity.class));
                 overridePendingTransition(R.anim.slide_left_a,R.anim.slide_left_b);
+                finish();
 
             }
 

@@ -15,4 +15,12 @@ public interface RetrofitInterface {
     @POST("/sign-up/verify")
     Call<Void> executePhoneVerification(@Body HashMap<String, String> map);
 
+    @POST("/update/PTK")
+    Call<Void> executeUpdatePTK(@Body HashMap<String, String> map);
+
+    @POST("/update/name")
+    Call<Void> executeUpdateName(@Body HashMap<String, String> map);
+
+
+
 }
