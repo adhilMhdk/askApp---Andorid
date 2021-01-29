@@ -4,13 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".mainSession.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        app:titleTextColor="@color/black"
         android:layout_height="wrap_content"
         app:title="AskApp"
         style="@style/Widget.MaterialComponents.Toolbar"
+        app:menu="@menu/main_menu"
         />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:background="@drawable/border_bg"
+        android:layout_width="match_parent"
+
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/chat_icon_outline"
+            />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/status_icon"
+            />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/call_icon"
+            />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:icon="@drawable/account_icon"
+            />
+
+    </com.google.android.material.tabs.TabLayout>
 
 </RelativeLayout>

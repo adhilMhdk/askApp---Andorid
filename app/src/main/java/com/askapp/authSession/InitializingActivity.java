@@ -2,7 +2,6 @@ package com.askapp.authSession;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +15,12 @@ public class InitializingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initializing);
 
-        new Handler().postDelayed(new Runnable() {
+        new LoadContacts(this, new LoadContacts.OnLoadedCallback() {
             @Override
-            public void run() {
+            public void onLoaded() {
                 startActivity(new Intent(InitializingActivity.this, MainActivity.class));
                 overridePendingTransition(R.anim.slide_left_a,R.anim.slide_left_b);
             }
-        },4000);
+        }).start();
     }
 }

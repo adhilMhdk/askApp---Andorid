@@ -36,6 +36,17 @@ public class StartActivity extends AppCompatActivity {
         init();
 
 
+        registerFCM();
+
+
+
+
+    }
+
+
+
+
+    private void registerFCM() {
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -66,7 +77,6 @@ public class StartActivity extends AppCompatActivity {
                         // Log and toast
                     }
                 });
-
     }
 
     private void init() {
@@ -90,6 +100,8 @@ public class StartActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 
 }

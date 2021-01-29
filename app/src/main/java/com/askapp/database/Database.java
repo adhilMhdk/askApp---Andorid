@@ -13,10 +13,13 @@ import java.util.HashMap;
 public class Database {
     Context context;
     private static String DATABASE_NAME = "USER_DATABASE";
+
     private static String USER_INFO_TABLE = "USER_INFO_TABLE";
     private static String NAME_ROW = "NAME";
     private static String PHONE_ROW = "PHONE";
     private static String STATUS_ROW = "STATUS";
+
+    private static String CONTACTS_TABLE = "CONTACTS_TABLE";
 
     SimplifiedDatabase database;
     public Database(Context context) {
@@ -33,6 +36,18 @@ public class Database {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        ArrayList<TableRowModel> tableRowModelsa = new ArrayList<>();
+        tableRowModelsa.add(new TableRowModel(NAME_ROW, new Types().getString()));
+        tableRowModelsa.add(new TableRowModel(PHONE_ROW, new Types().getString()));
+        try {
+            database.createTable(CONTACTS_TABLE,tableRowModelsa);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
     }
 
 
@@ -112,6 +127,53 @@ public class Database {
         }
 
 
+    }
+
+    public Boolean addContact(String name,String phone){
+
+        ArrayList<HashMap> maps = database.queryAllItemsInTable(CONTACTS_TABLE);
+        Boolean alreadyAdded = false;
+        if (!maps.isEmpty()){
+            for (int i = 0; i < maps.size(); i++) {
+                if (maps.get(i).get(PHONE_ROW).toString().equals(phone)){
+                    alreadyAdded = true;
+                }
+            }
+        }
+
+        if (!alreadyAdded) {
+            ArrayList<InsertData> insertData = new ArrayList<>();
+            insertData.add(new InsertData(NAME_ROW, name, 0));
+            insertData.add(new InsertData(PHONE_ROW, phone, 0));
+            database.insertData(CONTACTS_TABLE, insertData);
+        }
+        return true;
+    }
+
+    public void removeContact(String phone){
+        ArrayList<HashMap> contacts = getAllContacts();
+        int position = -1;
+        for (int i = 0; i < contacts.size(); i++) {
+            if (contacts.get(i).get(PHONE_ROW).toString().equals(phone)){
+                position = i;
+                break;
+            }
+        }
+        if (position!=-1){
+            contacts.remove(position);
+        }
+
+        database.clearTable(CONTACTS_TABLE);
+
+        for (int i = 0; i < contacts.size(); i++) {
+            addContact(contacts.get(i).get(NAME_ROW).toString(),contacts.get(i).get(PHONE_ROW).toString());
+        }
+
+
+    }
+
+    public ArrayList<HashMap> getAllContacts(){
+        return database.queryAllItemsInTable(CONTACTS_TABLE);
     }
 
 
